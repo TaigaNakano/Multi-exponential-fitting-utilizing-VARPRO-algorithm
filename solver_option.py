@@ -22,7 +22,6 @@ class SolverOption:
         self.scales = scales or {"x_scale":1.0, "f_scale": 1.0}
         self.max_nfev = max_nfev
 
-        # 依存関係を考慮したプロパティにセット
         self.method = method
         self.tr_solver = tr_solver
         self.bounds = bounds
