@@ -115,10 +115,7 @@ class SolverOption:
 
     @classmethod
     def from_xml(cls, path):
-        """
-        XML文字列からSolverOptionクラスにデシリアライズ
-        """
-        
+
         with open(path, "r", encoding="utf-8-sig") as f:
             xml_str = f.read()
 
