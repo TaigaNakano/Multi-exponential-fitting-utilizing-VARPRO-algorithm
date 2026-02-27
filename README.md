@@ -39,13 +39,13 @@ You can pass `weight=` to emphasize/de-emphasize samples. Optimization settings 
 ## 3. Theory
 
 Consider measurements $y(t_i)$ and a separable model
-$$
+\[
 y(t_i) \approx \sum_{k=1}^{K} c_k \exp(\lambda_k t_i) + c_0,
-$$
+\]
 where $\lambda_k<0$ are decay coefficients (often parameterized by time constants $\tau_k=-1/\lambda_k>0$), and $\{c_k\}$ plus offset $c_0$ are linear parameters. Define the design matrix $\Phi(\lambda)$ whose columns are $\exp(\lambda_k t)$ plus a column of ones for the offset. With weights $w_i$, the problem is
-$$
+\[
 \min_{\lambda,\,c}\ \|W(\Phi(\lambda)c - y)\|_2^2.
-$$
+\]
 VARPRO eliminates $c$ analytically: for fixed $\lambda$, compute $c(\lambda)=\arg\min_c \|W(\Phi(\lambda)c-y)\|_2$ by linear least squares (here via SVD and a small singular-value cutoff). Then the outer problem becomes $\min_{\lambda}\ \|r(\lambda)\|_2^2$. Efficient optimization requires the Jacobian of the reduced residual; this code forms it from projector-based expressions typical of VARPRO, and maps variables using $\lambda=-1/\tau$ so that time constants stay positive via bounds.
 
 ## 4. Literature
