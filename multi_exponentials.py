@@ -60,8 +60,7 @@ class MultiExponential:
                     
     @property
     def TimeConstants(self) -> npt.NDArray:
-        _LTs = -1.0/np.real( self._decay_coeffs.flatten() ) 
-        return _LTs
+        return -1.0/np.real( self._decay_coeffs.flatten() ) 
         
     @property
     def Coefficients(self) -> npt.NDArray:        
@@ -70,4 +69,5 @@ class MultiExponential:
     @property
     def Offset(self) -> float:
         return self._offset
+
     
